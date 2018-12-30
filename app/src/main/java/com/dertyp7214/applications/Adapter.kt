@@ -1,3 +1,8 @@
+/*
+ * Copyright (c) 2018.
+ * Created by Josua Lengwenath
+ */
+
 @file:Suppress("DEPRECATED_IDENTITY_EQUALS")
 
 package com.dertyp7214.applications

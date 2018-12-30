@@ -1,0 +1,24 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+    <style name="AppTheme.Swipe.Dark" parent="Theme.MaterialComponents.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+    <style name="AppTheme.Swipe.Light" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+    </style>
+
+    <style name="CustomPopupThemeDark" parent="ThemeOverlay.AppCompat.Dark">
+        <item name="android:colorControlActivated">@android:color/white</item>
+    </style>
+    <style name="CustomPopupThemeLight" parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:colorControlActivated">@android:color/black</item>
+    </style>
+</resources>

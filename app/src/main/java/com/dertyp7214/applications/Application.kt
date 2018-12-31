@@ -29,8 +29,9 @@ class Application : AppController() {
         val accentColor = getAttrColor(this, android.R.attr.colorAccent)
         themeManager.setDefaultAccent(accentColor)
         themeManager.changeAccentColor(accentColor)
-        themeManager.darkMode = (getSystemService(Context.UI_MODE_SERVICE) as UiModeManager).nightMode ==
-                UiModeManager.MODE_NIGHT_YES
+        if (getSharedPreferences("apps", Context.MODE_PRIVATE).getBoolean("uiModeAvailable", true))
+            themeManager.darkMode = (getSystemService(Context.UI_MODE_SERVICE) as UiModeManager).nightMode ==
+                    UiModeManager.MODE_NIGHT_YES
 
         registerActivityLifecycleCallbacks(object : ActivityLifecycleCallbacks {
             override fun onActivityPaused(activity: Activity?) {

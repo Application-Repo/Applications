@@ -8,7 +8,6 @@
 package com.dertyp7214.applications
 
 import android.app.ProgressDialog
-import android.app.UiModeManager
 import android.content.Context
 import android.content.SharedPreferences
 import android.content.pm.ApplicationInfo
@@ -19,6 +18,7 @@ import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.edit
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.dertyp7214.applications.Helper.checkUiModeAvailability
 import com.dertyp7214.themeablecomponents.components.ThemeableProgressBar
 import com.dertyp7214.themeablecomponents.utils.ThemeManager
 import kotlinx.android.synthetic.main.activity_main.*
@@ -102,17 +102,17 @@ class MainActivity : AppCompatActivity() {
             true
         }*/
 
-        if (BuildConfig.DEBUG) {
-            menu?.add(Menu.NONE, 2, Menu.NONE, "Toggle Darkmode")
-            menu?.findItem(2)?.setOnMenuItemClickListener {
-                val themeManager = ThemeManager.getInstance(this)
-                val manager = getSystemService(Context.UI_MODE_SERVICE) as UiModeManager
-                manager.nightMode = if (themeManager.darkMode) UiModeManager.MODE_NIGHT_NO
-                else UiModeManager.MODE_NIGHT_YES
-                themeManager.darkMode = !themeManager.darkMode
-                recreate()
-                true
+        menu?.add(Menu.NONE, 2, Menu.NONE, "Toggle Darkmode")
+        menu?.findItem(2)?.setOnMenuItemClickListener {
+            val themeManager = ThemeManager.getInstance(this)
+            preferences.edit {
+                putBoolean(
+                    "uiModeAvailable",
+                    checkUiModeAvailability(this@MainActivity, !themeManager.darkMode, themeManager)
+                )
             }
+            recreate()
+            true
         }
 
         return true

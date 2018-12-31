@@ -259,7 +259,7 @@
                 <ImageView
                         android:layout_width="75dp"
                         android:layout_height="75dp"
-                        app:srcCompat="@drawable/ic_launcher_background"
+                        app:srcCompat="@color/ic_launcher_background"
                         android:transitionName="fg"
                         android:id="@+id/adaptive_background"/>
 

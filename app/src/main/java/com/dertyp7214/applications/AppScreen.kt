@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018.
+ * Copyright (c) 2019.
  * Created by Josua Lengwenath
  */
 
@@ -93,12 +93,12 @@ class AppScreen : AppCompatActivity() {
         findViewById<TextView>(R.id.txt_apk_location).text = application.sourceDir
         findViewById<TextView>(R.id.txt_install_date).text =
                 DateFormat.format(
-                    "dd MMM yyyy hh:mm:ss",
+                    "dd MMM yyyy HH:mm:ss",
                     Date(packageManager.getPackageInfo(application.packageName, 0).firstInstallTime)
                 )
         findViewById<TextView>(R.id.txt_last_update).text =
                 DateFormat.format(
-                    "dd MMM yyyy hh:mm:ss",
+                    "dd MMM yyyy HH:mm:ss",
                     Date(packageManager.getPackageInfo(application.packageName, 0).lastUpdateTime)
                 )
         findViewById<TextView>(R.id.txt_version_name).text =

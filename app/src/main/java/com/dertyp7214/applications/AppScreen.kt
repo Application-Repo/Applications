@@ -148,7 +148,7 @@ class AppScreen : AppCompatActivity() {
                     }
                 }
 
-                btn_permissions.text = "$permissionCount Permissions"
+                btn_permissions.text = "$permissionCount ${if (permissionCount == 1) "Permission" else "Permissions"}"
                 if (permissionCount > 0) {
                     btn_permissions.setOnClickListener {
                         openPermissionDialog()
@@ -157,6 +157,15 @@ class AppScreen : AppCompatActivity() {
                     btn_permissions.isEnabled = false
                     btn_permissions.backgroundTintList = ColorStateList.valueOf(Color.GRAY)
                     btn_permissions.setTextColor(Color.DKGRAY)
+                }
+
+                btn_settings.setOnClickListener {
+                    startActivity(
+                        Intent(
+                            android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS,
+                            Uri.parse("package:$packageName")
+                        )
+                    )
                 }
             }
         })

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018.
+ * Copyright (c) 2019.
  * Created by Josua Lengwenath
  */
 
@@ -93,8 +93,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main, menu)
-
-        menu?.findItem(R.id.app_system_apps)?.isChecked = preferences.getBoolean("system_apps", true)
+        if (menu == null) return false
+        menu.findItem(R.id.app_system_apps).isChecked = preferences.getBoolean("system_apps", true)
 
         /*menu?.add(Menu.NONE, 1, Menu.NONE, "Theme Preview Screen")
         menu?.findItem(1)?.setOnMenuItemClickListener {
@@ -102,8 +102,8 @@ class MainActivity : AppCompatActivity() {
             true
         }*/
 
-        menu?.add(Menu.NONE, 2, Menu.NONE, "Toggle Darkmode")
-        menu?.findItem(2)?.setOnMenuItemClickListener {
+        menu.add(Menu.NONE, 2, Menu.NONE, "Toggle Darkmode")
+        menu.findItem(2).setOnMenuItemClickListener {
             val themeManager = ThemeManager.getInstance(this)
             preferences.edit {
                 putBoolean(

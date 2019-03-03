@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-  ~ Copyright (c) 2018.
+  ~ Copyright (c) 2019.
   ~ Created by Josua Lengwenath
   -->
 
@@ -238,11 +238,24 @@
                         </LinearLayout>
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
-                <com.dertyp7214.themeablecomponents.components.ThemeableButton
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="7dp"
-                        android:id="@+id/btn_permissions"/>
+                <LinearLayout
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    <com.dertyp7214.themeablecomponents.components.ThemeableButton
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:id="@+id/btn_permissions"
+                            android:layout_weight="1"/>
+                    <com.dertyp7214.themeablecomponents.components.ThemeableButton
+                            android:text="@string/open_settings"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="7dp"
+                            android:id="@+id/btn_settings"
+                            android:layout_weight="1"/>
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
         <RelativeLayout
